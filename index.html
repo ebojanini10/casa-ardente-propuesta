@@ -775,6 +775,42 @@
     margin-top: 8px !important;
   }
 
+  /* ── GLOSARIO ── */
+  .glosario-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 24px;
+    margin: 20px 0 0;
+  }
+
+  .glosario-item {
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
+    padding: 10px 0;
+    border-bottom: 1px solid #f1f5f9;
+  }
+
+  .glosario-item .g-sigla {
+    font-size: 12px;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: 0.04em;
+    min-width: 52px;
+    flex-shrink: 0;
+  }
+
+  .glosario-item .g-def {
+    font-size: 12.5px;
+    color: #475569;
+    line-height: 1.5;
+  }
+
+  .glosario-item .g-def strong {
+    color: #1e293b;
+    font-weight: 600;
+  }
+
   .footer-note {
     padding: 16px 0 0;
     font-size: 11px;
@@ -1355,6 +1391,55 @@
       <div class="step-text">Accesos y Mac Mini</div>
     </div>
   </div>
+</div>
+
+<hr />
+
+<!-- ── GLOSARIO ── -->
+<h2>Glosario</h2>
+
+<div class="glosario-grid">
+
+  <div class="glosario-item">
+    <span class="g-sigla">NDA</span>
+    <span class="g-def"><strong>Acuerdo de Confidencialidad</strong> — Contrato legal que obliga a ambas partes a no revelar información privada del negocio a terceros.</span>
+  </div>
+
+  <div class="glosario-item">
+    <span class="g-sigla">IA</span>
+    <span class="g-def"><strong>Inteligencia Artificial</strong> — Tecnología que permite a los sistemas entender lenguaje, analizar imágenes y generar respuestas de forma automática.</span>
+  </div>
+
+  <div class="glosario-item">
+    <span class="g-sigla">ICG</span>
+    <span class="g-def"><strong>Software de gestión</strong> — Sistema que Casa Ardente usa para controlar inventarios, almacén y operaciones de sus restaurantes.</span>
+  </div>
+
+  <div class="glosario-item">
+    <span class="g-sigla">API</span>
+    <span class="g-def"><strong>Interfaz de conexión entre sistemas</strong> — Permite que dos programas se comuniquen e intercambien datos de forma automática, sin intervención humana.</span>
+  </div>
+
+  <div class="glosario-item">
+    <span class="g-sigla">NPS</span>
+    <span class="g-def"><strong>Net Promoter Score</strong> — Indicador de satisfacción de clientes basado en reseñas. Mide cuántos clientes recomendarían el restaurante vs. cuántos no.</span>
+  </div>
+
+  <div class="glosario-item">
+    <span class="g-sigla">ROI</span>
+    <span class="g-def"><strong>Retorno sobre la inversión</strong> — Cuánto gana o ahorra el negocio en relación a lo que invierte en una herramienta o proceso.</span>
+  </div>
+
+  <div class="glosario-item">
+    <span class="g-sigla">SMMLV</span>
+    <span class="g-def"><strong>Salario Mínimo Mensual Legal Vigente</strong> — Referencia oficial del gobierno colombiano. En 2026: $1.750.905 COP.</span>
+  </div>
+
+  <div class="glosario-item">
+    <span class="g-sigla">PDF</span>
+    <span class="g-def"><strong>Formato de documento</strong> — Archivo que conserva el diseño original y puede abrirse en cualquier dispositivo sin alteraciones.</span>
+  </div>
+
 </div>
 
 <div class="footer-note">

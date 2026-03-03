@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Propuesta de Automatización — Casa Ardente × 12:12 Projects</title>
+<style>
+  /* ── FORZAR FONDOS EN IMPRESIÓN ── */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #1a1a1a;
+    background: #ffffff;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  /* ── HEADER ── */
+  .doc-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 64px;
+    background: #0f172a;
+    margin-bottom: 0;
+  }
+
+  .logo-cliente {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .logo-cliente .brand-name {
+    font-size: 24px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+
+  .logo-cliente .brand-name .ardente {
+    color: #DCA54A;
+  }
+
+  .logo-cliente .brand-sub {
+    font-size: 10px;
+    font-weight: 400;
+    color: #64748b;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .logo-separator {
+    font-size: 20px;
+    color: #334155;
+    font-weight: 300;
+    padding: 0 24px;
+  }
+
+  .logo-1212 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .logo-1212 .mark {
+    font-size: 24px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+
+  .logo-1212 .mark .colon {
+    color: #DCA54A;
+  }
+
+  .logo-1212 .sub {
+    font-size: 9px;
+    font-weight: 500;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-top: 3px;
+  }
+
+  /* ── HERO BAND ── */
+  .hero-band {
+    background: #DCA54A;
+    padding: 14px 64px;
+    margin-bottom: 40px;
+  }
+
+  .hero-band p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.9);
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    margin: 0;
+  }
+
+  /* ── CONTENIDO ── */
+  .doc-content {
+    padding: 0 64px 64px;
+  }
+
+  h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-top: 44px;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #DCA54A;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  h2 .fase-badge {
+    display: inline-block;
+    background: #DCA54A;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 99px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-top: 28px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  h3 .num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: #0f172a;
+    color: #DCA54A;
+    font-size: 11px;
+    font-weight: 800;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  h3 .urgente {
+    font-size: 10px;
+    font-weight: 700;
+    background: #fef2f2;
+    color: #dc2626;
+    padding: 2px 7px;
+    border-radius: 99px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  h4 {
+    font-size: 11px;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 18px;
+    margin-bottom: 6px;
+  }
+
+  p { margin-bottom: 12px; color: #334155; }
+  ul, ol { margin: 8px 0 12px 22px; color: #334155; }
+  li { margin-bottom: 5px; }
+  strong { color: #0f172a; font-weight: 600; }
+  em { color: #64748b; }
+
+  .lead {
+    font-size: 15px;
+    color: #475569;
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+
+  /* ── DOLOR CARDS ── */
+  .dolor-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin: 24px 0 32px;
+  }
+
+  .dolor-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 16px;
+    background: #f8fafc;
+  }
+
+  .dolor-card .area {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #DCA54A;
+    margin-bottom: 10px;
+  }
+
+  .dolor-card ul {
+    margin: 0;
+    padding-left: 16px;
+    font-size: 12.5px;
+    color: #475569;
+  }
+
+  .dolor-card li {
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+
+  /* ── TOOL CARD ── */
+  .tool-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 16px 0;
+    background: #ffffff;
+  }
+
+  .tool-card .problema-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #94a3b8;
+    margin-bottom: 4px;
+  }
+
+  .tool-card .problema-text {
+    font-size: 13px;
+    font-style: italic;
+    color: #64748b;
+    border-left: 3px solid #DCA54A;
+    padding-left: 12px;
+    margin-bottom: 14px;
+    line-height: 1.6;
+  }
+
+  .tool-card .entrega-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #0f172a;
+    margin-bottom: 8px;
+  }
+
+  .tool-card ul {
+    margin: 0 0 12px 18px;
+    font-size: 13px;
+    color: #334155;
+  }
+
+  .tool-card li { margin-bottom: 5px; }
+
+  /* ── CRONOGRAMA ── */
+  .timeline {
+    margin: 24px 0 32px;
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 0;
+  }
+
+  .tl-week {
+    display: contents;
+  }
+
+  .tl-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 8px 12px 0;
+    position: relative;
+  }
+
+  .tl-label::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 12px;
+    bottom: 0;
+    width: 2px;
+    background: #e2e8f0;
+  }
+
+  .tl-week:last-child .tl-label::after {
+    display: none;
+  }
+
+  .tl-dot {
+    width: 12px;
+    height: 12px;
+    background: #DCA54A;
+    border-radius: 50%;
+    position: absolute;
+    right: -5px;
+    top: 18px;
+    z-index: 1;
+  }
+
+  .tl-sem {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #94a3b8;
+    letter-spacing: 0.06em;
+    text-align: center;
+    line-height: 1.3;
+    padding-right: 16px;
+  }
+
+  .tl-content {
+    padding: 10px 0 16px 20px;
+    border-bottom: 1px solid #f1f5f9;
+  }
+
+  .tl-week:last-child .tl-content {
+    border-bottom: none;
+  }
+
+  .tl-fase {
+    font-size: 11px;
+    font-weight: 700;
+    color: #DCA54A;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+  }
+
+  .tl-items {
+    font-size: 13px;
+    color: #334155;
+  }
+
+  .tl-items span {
+    display: inline-block;
+    background: #f1f5f9;
+    border-radius: 4px;
+    padding: 2px 8px;
+    margin: 2px 3px 2px 0;
+    font-size: 12px;
+  }
+
+  .tl-anchor {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #dc2626;
+    font-weight: 600;
+  }
+
+  /* ── SESION ESTRATEGICA ── */
+  .sesion-box {
+    border: 2px solid #0f172a;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 24px 0;
+    background: #0f172a;
+    color: #ffffff;
+  }
+
+  .sesion-box .sesion-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #DCA54A;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+
+  .sesion-box p {
+    color: #94a3b8;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+
+  .sesion-box ul {
+    color: #cbd5e1;
+    font-size: 13px;
+    margin: 0 0 0 18px;
+  }
+
+  .sesion-box li { margin-bottom: 5px; }
+
+  /* ── PRICING ── */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .pricing-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 20px 22px;
+    background: #f8fafc;
+  }
+
+  .pricing-card.highlight {
+    background: #0f172a;
+    border-color: #0f172a;
+  }
+
+  .pricing-card .p-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #94a3b8;
+    margin-bottom: 14px;
+  }
+
+  .pricing-card.highlight .p-label {
+    color: #475569;
+  }
+
+  .price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 7px 0;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 13px;
+  }
+
+  .pricing-card.highlight .price-row {
+    border-bottom-color: #1e293b;
+  }
+
+  .price-row:last-of-type { border-bottom: none; }
+
+  .price-row .concept { color: #475569; }
+  .pricing-card.highlight .price-row .concept { color: #94a3b8; }
+
+  .price-row .amount {
+    font-weight: 700;
+    color: #0f172a;
+    font-size: 14px;
+  }
+
+  .pricing-card.highlight .price-row .amount { color: #ffffff; }
+
+  .price-total {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 2px solid #DCA54A;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .price-total .t-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #0f172a;
+  }
+
+  .pricing-card.highlight .price-total .t-label { color: #ffffff; }
+
+  .price-total .t-amount {
+    font-size: 20px;
+    font-weight: 800;
+    color: #DCA54A;
+    letter-spacing: -0.03em;
+  }
+
+  /* ── CONDICIONES ── */
+  .conditions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 16px 0 24px;
+  }
+
+  .condition-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 16px;
+  }
+
+  .condition-box .cb-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #0f172a;
+    margin-bottom: 8px;
+  }
+
+  .condition-box ul {
+    margin: 0 0 0 16px;
+    font-size: 12.5px;
+    color: #475569;
+  }
+
+  /* ── CTA ── */
+  .cta-box {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-top: 44px;
+    text-align: center;
+  }
+
+  .cta-box .cta-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #DCA54A;
+    margin-bottom: 12px;
+  }
+
+  .cta-box h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 16px;
+    border: none;
+    margin-top: 0;
+    padding-bottom: 0;
+    justify-content: center;
+  }
+
+  .cta-box p {
+    color: #94a3b8;
+    font-size: 13.5px;
+    margin-bottom: 8px;
+    line-height: 1.7;
+  }
+
+  .cta-steps {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+  }
+
+  .cta-step {
+    text-align: center;
+  }
+
+  .cta-step .step-num {
+    width: 36px;
+    height: 36px;
+    background: #DCA54A;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 auto 8px;
+  }
+
+  .cta-step .step-text {
+    font-size: 12px;
+    color: #94a3b8;
+    max-width: 120px;
+    line-height: 1.5;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 13px;
+  }
+
+  th {
+    background: #0f172a;
+    color: #ffffff;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  td {
+    padding: 9px 14px;
+    border-bottom: 1px solid #e2e8f0;
+    color: #334155;
+    vertical-align: top;
+  }
+
+  tr:nth-child(even) td { background: #f8fafc; }
+
+  hr { border: none; border-top: 1px solid #e2e8f0; margin: 36px 0; }
+
+  /* ── BRAND CARDS ── */
+  .brands-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+    margin: 24px 0 36px;
+  }
+
+  .brand-card {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+  }
+
+  .brand-card .bc-header {
+    background: #0f172a;
+    padding: 14px 16px 12px;
+  }
+
+  .brand-card .bc-name {
+    font-size: 16px;
+    font-weight: 800;
+    color: #DCA54A;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 3px;
+  }
+
+  .brand-card .bc-tipo {
+    font-size: 10px;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+  }
+
+  .brand-card .bc-body {
+    padding: 14px 16px;
+    background: #f8fafc;
+  }
+
+  .brand-card .bc-sede {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #94a3b8;
+    margin-bottom: 3px;
+    margin-top: 10px;
+  }
+
+  .brand-card .bc-sede:first-child { margin-top: 0; }
+
+  .brand-card .bc-info {
+    font-size: 12px;
+    color: #475569;
+    line-height: 1.5;
+    margin-bottom: 2px;
+  }
+
+  .brand-card .bc-tag {
+    display: inline-block;
+    background: #e2e8f0;
+    color: #475569;
+    font-size: 10px;
+    padding: 2px 7px;
+    border-radius: 99px;
+    margin: 6px 2px 0 0;
+    font-weight: 500;
+  }
+
+  .brand-card .bc-nueva {
+    display: inline-block;
+    background: #fef9ec;
+    color: #92700a;
+    border: 1px solid #DCA54A;
+    font-size: 10px;
+    padding: 2px 7px;
+    border-radius: 99px;
+    margin: 6px 2px 0 0;
+    font-weight: 600;
+  }
+
+  /* ── NDA BOX ── */
+  .nda-box {
+    border: 1.5px solid #334155;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 28px 0;
+    background: #f8fafc;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+
+  .nda-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+    line-height: 1;
+    margin-top: 2px;
+  }
+
+  .nda-body .nda-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 6px;
+  }
+
+  .nda-body p {
+    font-size: 13px;
+    color: #475569;
+    margin-bottom: 6px;
+    line-height: 1.6;
+  }
+
+  .nda-body p:last-child { margin-bottom: 0; }
+
+  /* ── HARDWARE BOX ── */
+  .hardware-box {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 16px 18px;
+    background: #f8fafc;
+    margin: 16px 0;
+  }
+
+  .hardware-box .hw-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #0f172a;
+    margin-bottom: 10px;
+  }
+
+  .hardware-box p {
+    font-size: 13px;
+    color: #475569;
+    margin-bottom: 6px;
+    line-height: 1.6;
+  }
+
+  .hardware-box p:last-child { margin-bottom: 0; }
+
+  .hw-note {
+    font-size: 12px;
+    color: #94a3b8;
+    font-style: italic;
+    margin-top: 8px !important;
+  }
+
+  .footer-note {
+    padding: 16px 0 0;
+    font-size: 11px;
+    color: #94a3b8;
+    text-align: center;
+  }
+
+  /* ── DOC FOOTER BAR ── */
+  .doc-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 64px;
+    background: #0f172a;
+    margin-top: 56px;
+  }
+
+  .df-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .df-left .mark {
+    font-size: 20px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+
+  .df-left .mark .colon { color: #DCA54A; }
+
+  .df-left .sub {
+    font-size: 8px;
+    font-weight: 500;
+    color: #475569;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-top: 3px;
+  }
+
+  .df-sep {
+    font-size: 18px;
+    color: #334155;
+    font-weight: 300;
+  }
+
+  .df-brands {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .df-brand-text {
+    font-size: 15px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 0.06em;
+    line-height: 1;
+    opacity: 0.9;
+  }
+
+  .df-brand-dot {
+    color: #334155;
+    font-size: 16px;
+    font-weight: 300;
+  }
+
+  .df-brand-img {
+    height: 28px;
+    width: auto;
+    display: block;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+  }
+
+  @media print {
+    .doc-footer { padding: 16px 32px; margin-top: 32px; }
+  }
+
+  @media print {
+    .doc-header { padding: 18px 32px; }
+    .hero-band { padding: 10px 32px; margin-bottom: 28px; }
+    .doc-content { padding: 0 32px 32px; }
+    body { font-size: 12px; }
+    h1 { font-size: 18px; }
+    h2 { font-size: 14px; margin-top: 28px; }
+    h3 { font-size: 13px; }
+    h4 { font-size: 10px; }
+    table { font-size: 11px; }
+    .brands-grid { grid-template-columns: 1fr 1fr 1fr; }
+    .dolor-grid { grid-template-columns: 1fr 1fr 1fr; }
+    .pricing-grid { grid-template-columns: 1fr 1fr; }
+    .conditions-grid { grid-template-columns: 1fr 1fr; }
+    @page { margin: 14mm 12mm; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header class="doc-header">
+  <div class="logo-cliente">
+    <img src="https://casaardente.com/wp-content/uploads/2024/12/Logo-blanco500px.png" alt="Casa Ardente" style="height:38px; width:auto; display:block;" />
+    <div class="brand-sub" style="font-size:10px; color:#475569; text-transform:uppercase; letter-spacing:0.12em; margin-top:6px;">Niku · Máximo · Taco House</div>
+  </div>
+
+  <div class="logo-separator">×</div>
+
+  <div class="logo-1212">
+    <div class="mark">12<span class="colon">:</span>12</div>
+    <div class="sub">Projects</div>
+  </div>
+</header>
+
+<div class="hero-band">
+  <p>Propuesta de automatización · Medellín, marzo 2026 · Para: Casa Ardente · Preparado por: Emiliano Bojanini</p>
+</div>
+
+<!-- ── CONTENIDO ── -->
+<div class="doc-content">
+
+<h1>Propuesta de Automatización — Casa Ardente</h1>
+
+<p class="lead">Casa Ardente opera tres marcas en Medellín y crece rápido: <strong>Máximo Cartagena abre a mediados de abril</strong>. El equipo es capaz, los procesos no están al ritmo del negocio. Este documento describe exactamente qué se va a construir, en qué orden, y cuánto cuesta — para que todo esté funcionando antes de la apertura.</p>
+
+<!-- ── MARCAS ── -->
+<div class="brands-grid">
+
+  <div class="brand-card">
+    <div class="bc-header">
+      <div class="bc-name">Niku</div>
+      <div class="bc-tipo">Cocina asiática · Eventos</div>
+    </div>
+    <div class="bc-body">
+      <div class="bc-sede">Medellín</div>
+      <div class="bc-info">Cra. 25 Cll. 1a Sur #155</div>
+      <div class="bc-info">Lun–Mié 12–10pm · Jue–Sáb 12–11:30pm · Dom 12–9pm</div>
+      <div class="bc-sede">Cartagena</div>
+      <div class="bc-info">Cll. San Juan de Dios #3–35</div>
+      <div class="bc-info">Lun–Dom</div>
+      <span class="bc-tag">DJ Mié–Sáb</span>
+      <span class="bc-tag">Cotización de eventos</span>
+    </div>
+  </div>
+
+  <div class="brand-card">
+    <div class="bc-header">
+      <div class="bc-name">Máximo</div>
+      <div class="bc-tipo">Experiencias gastronómicas</div>
+    </div>
+    <div class="bc-body">
+      <div class="bc-sede">Medellín</div>
+      <div class="bc-info">Cra. 35 #10B-66, El Poblado</div>
+      <div class="bc-info">Lun–Mié 12–10:30pm · Jue–Sáb 12–11:30pm · Dom y fest. 12–9pm</div>
+      <div class="bc-sede">Cartagena</div>
+      <span class="bc-nueva">Apertura abril 2026</span>
+    </div>
+  </div>
+
+  <div class="brand-card">
+    <div class="bc-header">
+      <div class="bc-name">Taco House</div>
+      <div class="bc-tipo">Cocina mexicana · Domicilios</div>
+    </div>
+    <div class="bc-body">
+      <div class="bc-sede">Menú</div>
+      <div class="bc-info">Bowls · Tacos · Burritos · Quesadillas</div>
+      <div class="bc-sede">Redes</div>
+      <div class="bc-info">@tacohousecolombia</div>
+      <span class="bc-tag">Domicilios</span>
+      <span class="bc-tag">Envío gratis +$50k</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── NDA ── -->
+<div class="nda-box">
+  <div class="nda-icon">🤝</div>
+  <div class="nda-body">
+    <div class="nda-title">Acuerdo de Confidencialidad (NDA) — Mutuo — Antes de arrancar</div>
+    <p>Antes de cualquier intercambio de información sensible — accesos a sistemas, datos de costos, estrategia de expansión, estructura operativa — ambas partes firmarán un acuerdo de confidencialidad mutuo.</p>
+    <p><strong>Protege a Casa Ardente:</strong> toda la información del negocio que comparta con 12:12 Projects (datos de ventas, márgenes, proveedores, planes de expansión) queda bajo estricta confidencialidad y no puede compartirse con terceros ni usarse fuera de este engagement.</p>
+    <p><strong>Protege a 12:12 Projects:</strong> la metodología, herramientas y desarrollos propietarios del proveedor quedan igualmente protegidos.</p>
+    <p>El NDA se firma antes del kickoff. Es condición para empezar a trabajar y para compartir cualquier credencial o dato operativo.</p>
+  </div>
+</div>
+
+<hr />
+
+<!-- ── DIAGNOSTICO ── -->
+<h2>Lo que el equipo hace hoy manualmente</h2>
+
+<p>En la reunión de hoy identificamos los puntos de fricción por área. No son quejas — son oportunidades de automatización concretas.</p>
+
+<div class="dolor-grid">
+  <div class="dolor-card">
+    <div class="area">Mercadeo</div>
+    <ul>
+      <li>Reseñas: lunes, manual, tres marcas</li>
+      <li>Mensajes a clientes frecuentes uno a uno</li>
+      <li>Cambios de menú dependen de diseñadora freelance</li>
+      <li>Cotizaciones de eventos desde cero cada vez</li>
+      <li>Tendencias: búsqueda manual en WGSN y redes</li>
+      <li>Sin briefing diario automático por área</li>
+    </ul>
+  </div>
+  <div class="dolor-card">
+    <div class="area">Costos — Marisela</div>
+    <ul>
+      <li>Auditorías quincenales: 2 días por marca en Excel</li>
+      <li>ICG: un solo almacén → separación bar/cocina manual</li>
+      <li>Costo ponderado: ICG no lo calcula, lo hace ella</li>
+      <li>Toppings Taco House: solo se registra proteína</li>
+      <li>Taco House en transición Logros → ICG</li>
+    </ul>
+  </div>
+  <div class="dolor-card">
+    <div class="area">Operaciones</div>
+    <ul>
+      <li>Facturas: mensajero recoge fotos diariamente, extracción manual</li>
+      <li>Bowls sin trazabilidad de adiciones → datos de consumo perdidos</li>
+    </ul>
+  </div>
+</div>
+
+<hr />
+
+<!-- ── SEMANA 1 ── -->
+<h2><span class="fase-badge">Semana 1</span> Quick Wins</h2>
+
+<p>Las tres herramientas de mayor impacto inmediato. La primera es urgente.</p>
+
+<!-- HERRAMIENTA 1 -->
+<h3><span class="num">1</span> Agente Cotizador de Eventos <span class="urgente">urgente</span></h3>
+
+<div class="tool-card">
+  <div class="problema-label">El problema</div>
+  <div class="problema-text">Cada cotización de evento en Niku Cartagena se arma desde cero. Wilson lo necesita ya: seleccionar platos, escribir descripciones, buscar imágenes, armar la tabla económica. Todo manual.</div>
+
+  <div class="entrega-label">Lo que se entrega</div>
+  <ul>
+    <li><strong>Flujo de configuración:</strong> número de personas, formato del evento, fecha, platos seleccionados</li>
+    <li><strong>Propuesta automática:</strong> imágenes de los platos, descripción, tabla económica con totales y subtotales</li>
+    <li><strong>Lista para enviar</strong> en PDF o link en minutos, no horas</li>
+    <li>Configurable para las tres marcas: Niku, Máximo, Taco House</li>
+  </ul>
+
+</div>
+
+<!-- HERRAMIENTA 2 -->
+<h3><span class="num">2</span> Agente de Reseñas Multimarca</h3>
+
+<div class="tool-card">
+  <div class="problema-label">El problema</div>
+  <div class="problema-text">Cada lunes el equipo entra manualmente a Google y las redes de las tres marcas para agregar, leer y responder reseñas. Sin clasificación, sin prioridad, sin historial.</div>
+
+  <div class="entrega-label">Lo que se entrega</div>
+  <ul>
+    <li><strong>Agregación automática diaria</strong> de reseñas por marca (Google Business, Instagram)</li>
+    <li>Clasificación: positiva / negativa / crítica urgente</li>
+    <li><strong>Respuesta redactada</strong> lista para aprobar y publicar con un clic</li>
+    <li>Alerta inmediata cuando llega una reseña crítica o urgente</li>
+    <li>Dashboard de tendencia NPS por marca y sede</li>
+  </ul>
+
+</div>
+
+<!-- HERRAMIENTA 3 -->
+<h3><span class="num">3</span> Briefing Matutino por WhatsApp</h3>
+
+<div class="tool-card">
+  <div class="problema-label">El problema</div>
+  <div class="problema-text">Cada área empieza el día sin contexto de sus pendientes. Nada llega automáticamente.</div>
+
+  <div class="entrega-label">Lo que se entrega</div>
+  <ul>
+    <li>A las 8AM cada área recibe por WhatsApp el resumen de su día</li>
+    <li><strong>Mercadeo:</strong> reseñas sin responder, cotizaciones pendientes, eventos del día</li>
+    <li><strong>Costos:</strong> alertas de descuadre, vencimientos de inventario</li>
+    <li><strong>Operaciones:</strong> facturas por registrar, milestones apertura Cartagena</li>
+  </ul>
+
+</div>
+
+<hr />
+
+<!-- ── SEMANA 2 ── -->
+<h2><span class="fase-badge">Semana 2</span> Core Automations</h2>
+
+<!-- HERRAMIENTA 4 -->
+<h3><span class="num">4</span> Agente de Tendencias</h3>
+
+<div class="tool-card">
+  <div class="problema-label">El problema</div>
+  <div class="problema-text">El monitoreo de tendencias (WGSN, redes, referentes globales) lo hace el equipo manualmente, sin frecuencia fija ni estructura.</div>
+
+  <div class="entrega-label">Lo que se entrega</div>
+  <ul>
+    <li>Monitoreo semanal automatizado de fuentes de tendencias culinarias y de experiencia</li>
+    <li>Resumen curado con implicaciones concretas para cada marca</li>
+    <li>Entregado a mercadeo cada lunes como insumo de briefing creativo</li>
+  </ul>
+
+</div>
+
+<!-- HERRAMIENTA 5 -->
+<h3><span class="num">5</span> Automatización de Facturas</h3>
+
+<div class="tool-card">
+  <div class="problema-label">El problema</div>
+  <div class="problema-text">El mensajero recoge fotos de facturas diariamente. La extracción de datos y el registro en Excel son completamente manuales.</div>
+
+  <div class="entrega-label">Lo que se entrega</div>
+  <ul>
+    <li>El equipo envía la foto de la factura por WhatsApp</li>
+    <li>El sistema extrae automáticamente: proveedor, fecha, productos, valores, IVA</li>
+    <li>Exporta a Excel en el formato exacto que maneja Marisela hoy</li>
+    <li>Si ICG tiene API: carga directa sin intervención manual</li>
+  </ul>
+
+</div>
+
+<!-- HERRAMIENTA 6 -->
+<h3><span class="num">6</span> Dashboard de Costos Semi-Automatizado</h3>
+
+<div class="tool-card">
+  <div class="problema-label">El problema</div>
+  <div class="problema-text">ICG no calcula costo ponderado ni separa bar/cocina. Marisela hace todo esto manualmente cada quince días. Los toppings de Taco House no tienen trazabilidad.</div>
+
+  <div class="entrega-label">Lo que se entrega</div>
+  <ul>
+    <li><strong>Costo ponderado automático</strong> por producto y por marca</li>
+    <li>Separación bar/cocina automatizada con las reglas que Marisela define una sola vez</li>
+    <li>Alertas de descuadre: cuando los números no cierran, el sistema avisa</li>
+    <li>Dashboard actualizado continuamente, no solo quincenalmente</li>
+    <li><strong>Trazabilidad completa de toppings Taco House:</strong> adiciones + proteína registradas individualmente</li>
+  </ul>
+
+</div>
+
+<hr />
+
+<!-- ── SEMANAS 3-4 ── -->
+<h2><span class="fase-badge">Semanas 3–4</span> Scale</h2>
+
+<!-- HERRAMIENTA 7 -->
+<h3><span class="num">7</span> Bot WhatsApp Multimarca</h3>
+
+<div class="tool-card">
+  <div class="problema-label">El problema</div>
+  <div class="problema-text">Las consultas de eventos, reservas y atención general llegan al equipo por WhatsApp y se responden manualmente, sin estructura ni seguimiento.</div>
+
+  <div class="entrega-label">Lo que se entrega</div>
+  <ul>
+    <li>Bot de WhatsApp configurado para las tres marcas</li>
+    <li>Cotización de eventos con flujo conversacional (conectado a Herramienta 1)</li>
+    <li>Preguntas frecuentes respondidas automáticamente por marca</li>
+    <li>Escalado a humano con contexto completo cuando se necesita</li>
+  </ul>
+
+</div>
+
+<!-- HERRAMIENTA 8 -->
+<h3><span class="num">8</span> Analytics Dashboard</h3>
+
+<div class="tool-card">
+  <div class="problema-label">El problema</div>
+  <div class="problema-text">No hay una vista unificada de ventas, costos y NPS por marca y sede.</div>
+
+  <div class="entrega-label">Lo que se entrega</div>
+  <ul>
+    <li>Dashboard ejecutivo: ventas por marca/sede, costos reales vs proyectados, NPS tendencia</li>
+    <li>Comparativo entre sedes de la misma marca (Medellín vs Cartagena, Niku vs Máximo)</li>
+    <li>Exportable para presentación a la junta directiva o inversionistas</li>
+  </ul>
+
+</div>
+
+<!-- HERRAMIENTA 9 -->
+<h3><span class="num">9</span> Protocolo de Apertura Digital</h3>
+
+<div class="tool-card">
+  <div class="problema-label">El problema</div>
+  <div class="problema-text">Máximo Cartagena abre en abril. Niku Bogotá en octubre. Cada apertura requiere configurar todos los procesos desde cero.</div>
+
+  <div class="entrega-label">Lo que se entrega</div>
+  <ul>
+    <li>Checklist digital de apertura por rol: operaciones, mercadeo, costos</li>
+    <li>Configuración automática de todas las herramientas para la nueva sede</li>
+    <li>Onboarding guiado por WhatsApp para el equipo en la nueva ciudad</li>
+  </ul>
+
+</div>
+
+<hr />
+
+<!-- ── SESION ESTRATEGICA ── -->
+<div class="sesion-box">
+  <div class="sesion-title">Sesión Estratégica — Daniel + Juana · 2 horas · Antes de Fase 1</div>
+  <p>Antes de arrancar, propongo una sesión de trabajo con Daniel y Juana para alinear en profundidad. No es una reunión abierta — tiene agenda y termina con decisiones concretas.</p>
+  <ul>
+    <li>Dirección estratégica: qué equipos fortalecer, qué reducir, qué preservar humano</li>
+    <li>Priorización final de las 9 herramientas según ROI esperado</li>
+    <li>Visión expansión Bogotá: qué construir desde cero con IA desde el primer día</li>
+    <li>Accesos y datos: ICG API, sistemas de punto de venta, plataformas de reseñas</li>
+    <li>Filosofía del equipo: qué se automatiza y qué permanece con toque humano</li>
+  </ul>
+</div>
+
+<hr />
+
+<!-- ── CRONOGRAMA ── -->
+<h2>Cronograma — 4 semanas</h2>
+
+<p><strong>Anchor:</strong> Todo entregado antes de que Máximo Cartagena abra sus puertas en abril.</p>
+
+<div class="timeline">
+  <div class="tl-week">
+    <div class="tl-label">
+      <div class="tl-dot"></div>
+      <div class="tl-sem">Semana<br>0</div>
+    </div>
+    <div class="tl-content">
+      <div class="tl-fase">Estrategia</div>
+      <div class="tl-items">
+        <span>Sesión estratégica Daniel + Juana</span>
+        <span>Accesos y priorización</span>
+      </div>
+    </div>
+  </div>
+  <div class="tl-week">
+    <div class="tl-label">
+      <div class="tl-dot"></div>
+      <div class="tl-sem">Semana<br>1</div>
+    </div>
+    <div class="tl-content">
+      <div class="tl-fase">Quick Wins</div>
+      <div class="tl-items">
+        <span>⭐ Cotizador eventos Niku</span>
+        <span>Agente reseñas multimarca</span>
+        <span>Briefing matutino WhatsApp</span>
+      </div>
+    </div>
+  </div>
+  <div class="tl-week">
+    <div class="tl-label">
+      <div class="tl-dot"></div>
+      <div class="tl-sem">Semana<br>2</div>
+    </div>
+    <div class="tl-content">
+      <div class="tl-fase">Core Automations</div>
+      <div class="tl-items">
+        <span>Agente tendencias</span>
+        <span>Automatización facturas</span>
+        <span>Dashboard costos + toppings</span>
+      </div>
+    </div>
+  </div>
+  <div class="tl-week">
+    <div class="tl-label">
+      <div class="tl-dot"></div>
+      <div class="tl-sem">Semanas<br>3–4</div>
+    </div>
+    <div class="tl-content">
+      <div class="tl-fase">Scale</div>
+      <div class="tl-items">
+        <span>Bot WhatsApp multimarca</span>
+        <span>Analytics dashboard</span>
+        <span>Protocolo apertura Cartagena</span>
+      </div>
+      <div class="tl-anchor">→ Máximo Cartagena abre en abril con todos los sistemas listos</div>
+    </div>
+  </div>
+</div>
+
+<hr />
+
+<!-- ── INVERSION ── -->
+<h2>Inversión</h2>
+
+<div class="pricing-grid">
+  <div class="pricing-card">
+    <div class="p-label">Setup por fase</div>
+    <div class="price-row">
+      <span class="concept">Fase 1 — Quick Wins (Sem 1)</span>
+      <span class="amount">$3.500.000</span>
+    </div>
+    <div class="price-row">
+      <span class="concept">Fase 2 — Core Automations (Sem 2)</span>
+      <span class="amount">$5.000.000</span>
+    </div>
+    <div class="price-row">
+      <span class="concept">Fase 3 — Scale (Sem 3-4)</span>
+      <span class="amount">$5.000.000</span>
+    </div>
+    <div class="price-total">
+      <span class="t-label">Total setups</span>
+      <span class="t-amount">$13.500.000</span>
+    </div>
+  </div>
+
+  <div class="pricing-card highlight">
+    <div class="p-label">Retainer mensual</div>
+    <div class="price-row">
+      <span class="concept">Mantenimiento, ajustes y soporte</span>
+      <span class="amount">$1.750.905</span>
+    </div>
+    <div class="price-row">
+      <span class="concept">Equivale a 1 SMMLV 2026</span>
+      <span class="amount">/ mes</span>
+    </div>
+    <div class="price-total">
+      <span class="t-label">Inversión mes 1</span>
+      <span class="t-amount">~$15.25M</span>
+    </div>
+  </div>
+</div>
+
+<div class="conditions-grid">
+  <div class="condition-box">
+    <div class="cb-title">Forma de pago</div>
+    <ul>
+      <li><strong>Fase 1:</strong> se paga al finalizar — contra entrega de las 3 herramientas funcionando</li>
+      <li><strong>Fase 2:</strong> se paga al inicio de la fase</li>
+      <li><strong>Fase 3:</strong> se paga al inicio de la fase</li>
+      <li>Retainer mensual desde el mes 1, sin permanencia mínima</li>
+    </ul>
+  </div>
+  <div class="condition-box">
+    <div class="cb-title">Herramientas y servicios por cuenta de Casa Ardente</div>
+    <ul>
+      <li>Canal de WhatsApp Business (número verificado, Meta)</li>
+      <li>Servicio de inteligencia artificial (uso por consumo, sin licencia fija)</li>
+      <li>Acceso a reseñas de Google (Google Business Profile)</li>
+      <li>Acceso API al sistema ICG</li>
+      <li>Servidor dedicado — Mac Mini (~USD $800–$900, ver sección Infraestructura)</li>
+    </ul>
+  </div>
+</div>
+
+<p style="font-size:12.5px; color:#64748b;">
+  <strong style="color:#0f172a">Principio:</strong> 12:12 Projects diseña, construye e integra. Los costos operativos de todas las plataformas, APIs y suscripciones de software son costos del negocio y corren por cuenta de Casa Ardente — no del proveedor. El monto de estas herramientas es bajo y estable: la mayoría cobra por uso real, no por licencias fijas. El código y las herramientas son propiedad de Casa Ardente desde el primer día.
+</p>
+
+<div class="hardware-box">
+  <div class="hw-title">Infraestructura — Servidor Dedicado</div>
+  <p>Para correr los bots y automatizaciones de forma continua, Casa Ardente necesita un computador dedicado que actúe como servidor 24/7. La recomendación es una <strong>Mac Mini</strong> (~USD $800–$900), que tiene bajo consumo eléctrico, no ocupa espacio y es suficiente para toda la operación.</p>
+  <p><strong>Gestión de la compra:</strong> 12:12 Projects puede encargarse de todo el proceso de adquisición y configuración. No se cobra ningún margen sobre el equipo — el precio que paga Casa Ardente es el precio real del dispositivo.</p>
+  <p class="hw-note">Mientras se adquiere el equipo, el proyecto puede correr temporalmente en infraestructura de 12:12 Projects sin costo adicional para Casa Ardente.</p>
+</div>
+
+<hr />
+
+<!-- ── CTA ── -->
+<div class="cta-box">
+  <div class="cta-eyebrow">Siguiente paso</div>
+  <h2>Arrancamos esta semana</h2>
+  <p>Máximo Cartagena abre en abril. Tenemos cuatro semanas para dejar todo funcionando.</p>
+
+  <div class="cta-steps">
+    <div class="cta-step">
+      <div class="step-num">1</div>
+      <div class="step-text">Firma del NDA mutuo</div>
+    </div>
+    <div class="cta-step">
+      <div class="step-num">2</div>
+      <div class="step-text">Sesión estratégica Daniel + Juana (2h)</div>
+    </div>
+    <div class="cta-step">
+      <div class="step-num">3</div>
+      <div class="step-text">Kickoff Fase 1 — Cotizador eventos Niku</div>
+    </div>
+    <div class="cta-step">
+      <div class="step-num">4</div>
+      <div class="step-text">Accesos y Mac Mini</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer-note">
+  Documento preparado por 12:12 Projects — Emiliano Bojanini — Marzo 2026
+</div>
+
+</div><!-- /doc-content -->
+
+<!-- ── FOOTER BAR ── -->
+<footer class="doc-footer">
+  <div class="df-left">
+    <div class="mark">12<span class="colon">:</span>12</div>
+    <div class="sub">Projects</div>
+  </div>
+
+  <div class="df-sep">×</div>
+
+  <div class="df-brands">
+    <div class="df-brand-text">NIKU</div>
+    <div class="df-brand-dot">·</div>
+    <div class="df-brand-text">MÁXIMO</div>
+    <div class="df-brand-dot">·</div>
+    <img
+      src="https://tofuu.getjusto.com/orioneat-local/resized2/XFxjqcsyf7cYjbfmX-x-300.webp"
+      alt="Taco House"
+      class="df-brand-img"
+    />
+  </div>
+</footer>
+
+</body>
+</html>
